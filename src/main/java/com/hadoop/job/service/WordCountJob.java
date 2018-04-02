@@ -46,7 +46,7 @@ public class WordCountJob {
 				}
 				
 				logger.info("Begin Write input file into hdfs");
-				Path inputPath = new Path(newFolderPath + "/" + inputFileName);
+				Path inputPath = new Path(newFolderPath + "/input/" + inputFileName);
 				outputStream = fs.create(inputPath);
 				in = new BufferedInputStream(new FileInputStream("src/test/resources/"+inputFileName));
 				IOUtils.copyBytes(in, outputStream, 4096, true);
