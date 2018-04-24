@@ -59,7 +59,7 @@ public class WordCountJob {
 				logger.info("Begin Write input file into hdfs");
 				Path inputPath = new Path(newFolderPath + "/input/" + inputFileName);
 				outputStream = fs.create(inputPath);
-				in = new BufferedInputStream(new FileInputStream("src/test/resources/"+inputFileName));
+				in = new BufferedInputStream(new FileInputStream("src/test/resources/wordcount/"+inputFileName));
 				IOUtils.copyBytes(in, outputStream, 4096, true);
 				logger.info("End Write input file into hdfs");
 
@@ -69,7 +69,7 @@ public class WordCountJob {
 				logger.info("Begin Write Jar file into hdfs");
 				Path jarPath = new Path(newFolderPath + "/" + jarFileName);
 				outputStream = fs.create(jarPath);
-				in = new BufferedInputStream(new FileInputStream("src/test/resources/"+jarFileName));
+				in = new BufferedInputStream(new FileInputStream("src/test/resources/wordcount/"+jarFileName));
 				IOUtils.copyBytes(in, outputStream, 4096, true);
 				logger.info("End Write Jar file into hdfs");
 
