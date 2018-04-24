@@ -1,3 +1,5 @@
+CREATE DATABASE mplus;
+
 CREATE TABLE mplus.acs_data ( value string) partitioned by (eventdate string) row format delimited fields terminated by '\n' stored as textfile;
 
 alter table mplus.acs_data add if not exists partition(eventdate="20180422") location '/acsdata/input/20180422/';
@@ -50,5 +52,8 @@ json_tuple(a.value, 'MSISDN','TemplateFileName','ProvisioningUpdateTimeDate',
                     'TerminalVendor','TerminalSWVersion','TerminalModel','RCSVersion')
                     b as msisdn,templatefilename,pudt,pudt1,clientversion, mnoid,clientvendor, terminalvendor, terminalversion,terminalmodel,rcsversion
 where a.eventdate="20180423";
+
+
+select * from mplus.acs_extract_daily;
      
      
